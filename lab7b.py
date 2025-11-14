@@ -5,7 +5,7 @@ class Time:
     data attributes: hour, minute, second
     """
     def __init__(self,hour=12,minute=0,second=0):
-        """constructor for time object"""
+        """constructor for time object""" 
         self.hour = hour
         self.minute = minute
         self.second = second
@@ -29,9 +29,32 @@ def sum_times(t1, t2):
     """handle minutes carry"""
     if sum.minute >= 60:
         sum.hour += sum.minute // 60
-        sum.minute = sum.minute % 60
+        sum.minute = sum.second % 60
 
     return sum
+
+
+def change_time(time, seconds):
+    time.second += seconds
+
+    while time.second >= 60:
+        time.second -= 60
+        time.minute += 1
+
+    while time.second < 0:
+        time.minute -=1
+        time.second += 60
+
+    while time.minute >= 60:
+        time.minute -= 60
+        time.hour += 1
+
+    while time.minute < 0:
+        time.hour -= 1
+        time.minute += 60
+
+    return None
+
 
 def valid_time(t):
     """check for the validity of the time object attributes:
